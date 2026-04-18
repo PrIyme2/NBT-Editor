@@ -20,7 +20,7 @@ public class MVShaders {
 		public MVShaderProgramKey(String name, VertexFormat vertexFormat) {
 			this(name, vertexFormat, Version.newSwitch()
 					.range("1.21.2", null, () -> new ShaderProgramKey(IdentifierInst.of("minecraft", "core/" + name), vertexFormat, Defines.EMPTY))
-					.range(null, "1.21.1", () -> null)
+					.range(null, "1.21.11", () -> null)
 					.get());
 		}
 	}
@@ -62,7 +62,7 @@ public class MVShaders {
 	public static RenderPhase.ShaderProgram newRenderPhaseShaderProgram(MVShaderProgram shader) {
 		return Version.<RenderPhase.ShaderProgram>newSwitch()
 				.range("1.21.2", null, () -> new RenderPhase.ShaderProgram((ShaderProgramKey) shader.key.mcKey()))
-				.range(null, "1.21.1", () -> Reflection.newInstance(RenderPhase.ShaderProgram.class, new Class<?>[] {Supplier.class}, (Supplier<ShaderProgram>) () -> shader.shader))
+				.range(null, "1.21.11", () -> Reflection.newInstance(RenderPhase.ShaderProgram.class, new Class<?>[] {Supplier.class}, (Supplier<ShaderProgram>) () -> shader.shader))
 				.get();
 	}
 	

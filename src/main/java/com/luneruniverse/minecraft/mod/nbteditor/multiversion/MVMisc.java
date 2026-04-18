@@ -673,7 +673,7 @@ public class MVMisc {
 	public static int getTooltipComponentHeight(TooltipComponent line) {
 		return Version.<Integer>newSwitch()
 				.range("1.21.2", null, () -> line.getHeight(MainUtil.client.textRenderer))
-				.range(null, "1.21.1", () -> TooltipComponent_getHeight.get().invoke(line))
+				.range(null, "1.21.11", () -> TooltipComponent_getHeight.get().invoke(line))
 				.get();
 	}
 	
@@ -684,7 +684,7 @@ public class MVMisc {
 				.range("1.21.2", null, () -> new ServerCommandSource(
 						CommandOutput.DUMMY, entity.getPos(), entity.getRotationClient(), null, 0,
 						entity.getName().getString(), entity.getDisplayName(), null, entity))
-				.range(null, "1.21.1", () -> Entity_getCommandSource.get().invoke(entity))
+				.range(null, "1.21.11", () -> Entity_getCommandSource.get().invoke(entity))
 				.get();
 	}
 	
@@ -693,14 +693,14 @@ public class MVMisc {
 	public static Profiler getProfiler() {
 		return Version.<Profiler>newSwitch()
 				.range("1.21.2", null, () -> Profilers.get())
-				.range(null, "1.21.1", () -> MinecraftClient_getProfiler.get().invoke(MainUtil.client))
+				.range(null, "1.21.11", () -> MinecraftClient_getProfiler.get().invoke(MainUtil.client))
 				.get();
 	}
 	
 	public static PotionContentsComponent newPotionContentsComponent(Optional<RegistryEntry<Potion>> potion, Optional<Integer> customColor, List<StatusEffectInstance> customEffects) {
 		return Version.<PotionContentsComponent>newSwitch()
 				.range("1.21.2", null, () -> new PotionContentsComponent(potion, customColor, customEffects, Optional.empty()))
-				.range(null, "1.21.1", () -> Reflection.newInstance(PotionContentsComponent.class, new Class<?>[] {Optional.class, Optional.class, List.class}, potion, customColor, customEffects))
+				.range(null, "1.21.11", () -> Reflection.newInstance(PotionContentsComponent.class, new Class<?>[] {Optional.class, Optional.class, List.class}, potion, customColor, customEffects))
 				.get();
 	}
 	
@@ -709,7 +709,7 @@ public class MVMisc {
 	public static void renderEntity(EntityRenderDispatcher dispatcher, Entity entity, double x, double y, double z, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
 		Version.newSwitch()
 				.range("1.21.2", null, () -> dispatcher.render(entity, x, y, z, tickDelta, matrices, vertexConsumers, light))
-				.range(null, "1.21.1", () -> EntityRenderDispatcher_render.get().invoke(dispatcher, entity, x, y, z, yaw, tickDelta, matrices, vertexConsumers, light))
+				.range(null, "1.21.11", () -> EntityRenderDispatcher_render.get().invoke(dispatcher, entity, x, y, z, yaw, tickDelta, matrices, vertexConsumers, light))
 				.run();
 	}
 	
@@ -769,7 +769,7 @@ public class MVMisc {
 	public static Text getName(Item item) {
 		return Version.<Text>newSwitch()
 				.range("1.21.2", null, () -> item.getName())
-				.range(null, "1.21.1", () -> Item_getName.get().invoke(item))
+				.range(null, "1.21.11", () -> Item_getName.get().invoke(item))
 				.get();
 	}
 	

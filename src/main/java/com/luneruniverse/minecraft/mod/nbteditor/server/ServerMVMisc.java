@@ -60,7 +60,7 @@ public class ServerMVMisc {
 	public static Entity createEntity(EntityType<?> entityType, World world) {
 		return Version.<Entity>newSwitch()
 				.range("1.21.2", null, () -> entityType.create(world, SpawnReason.COMMAND))
-				.range(null, "1.21.1", () -> EntityType_create.get().invoke(entityType, world))
+				.range(null, "1.21.11", () -> EntityType_create.get().invoke(entityType, world))
 				.get();
 	}
 	
@@ -69,7 +69,7 @@ public class ServerMVMisc {
 	public static boolean hasPermissionLevel(PlayerEntity player, int level) {
 		return Version.<Boolean>newSwitch()
 				.range("1.21.2", null, () -> player.hasPermissionLevel(level))
-				.range(null, "1.21.1", () -> Entity_hasPermissionLevel.get().invoke(player, level))
+				.range(null, "1.21.11", () -> Entity_hasPermissionLevel.get().invoke(player, level))
 				.get();
 	}
 	
@@ -78,7 +78,7 @@ public class ServerMVMisc {
 	public static <T extends Comparable<T>> Collection<T> getValues(Property<T> property) {
 		return Version.<Collection<T>>newSwitch()
 				.range("1.21.2", null, () -> property.getValues())
-				.range(null, "1.21.1", () -> Property_getValues.get().invoke(property))
+				.range(null, "1.21.11", () -> Property_getValues.get().invoke(property))
 				.get();
 	}
 	

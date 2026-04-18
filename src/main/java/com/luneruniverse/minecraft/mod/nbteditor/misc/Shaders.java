@@ -24,7 +24,7 @@ public class Shaders {
 		SHADERS.add(shader);
 		Version.newSwitch()
 				.range("1.21.2", null, () -> ShaderProgramKeys.getAll().add((ShaderProgramKey) key.mcKey()))
-				.range(null, "1.21.1", () -> {})
+				.range(null, "1.21.11", () -> {})
 				.run();
 		return shader;
 	}
