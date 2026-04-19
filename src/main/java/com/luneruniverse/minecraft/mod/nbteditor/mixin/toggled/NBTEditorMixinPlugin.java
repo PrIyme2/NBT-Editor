@@ -60,7 +60,7 @@ public class NBTEditorMixinPlugin extends BasicMixinPlugin {
 				.run();
 		Version.newSwitch()
 				.range("1.21.2", null, () -> output.add("toggled.GameRendererMixin_1_21_2"))
-				.range(null, "1.21.11", () -> output.add("toggled.GameRendererMixin_1_21_1"))
+				.range(null, "1.21.1", () -> output.add("toggled.GameRendererMixin_1_21_1"))
 				.run();
 		Version.newSwitch()
 				.range("1.21.4", null, () -> {
@@ -71,7 +71,7 @@ public class NBTEditorMixinPlugin extends BasicMixinPlugin {
 				.run();
 		Version.newSwitch()
 				.range("1.21.2", null, () -> output.add("toggled.ClientPlayNetworkHandlerMixin"))
-				.range(null, "1.21.11", () -> {})
+				.range(null, "1.21.1", () -> {})
 				.run();
 	}
 	

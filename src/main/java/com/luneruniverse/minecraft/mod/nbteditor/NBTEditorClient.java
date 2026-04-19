@@ -43,7 +43,7 @@ public class NBTEditorClient implements ClientModInitializer {
 		MC_1_17_Link.MixinLink.ENCHANT_GLINT_FIX = MixinLink.ENCHANT_GLINT_FIX;
 		MC_1_17_Link.MixinLink.USE_DIRECT_ITEM_GLINT_CONSUMER = Version.<Boolean>newSwitch()
 				.range("1.21.2", null, false)
-				.range(null, "1.21.11", true)
+				.range(null, "1.21.1", true)
 				.get();
 		MC_1_17_Link.ConfigScreen.isEnchantGlintFix_impl = ConfigScreen::isEnchantGlintFix;
 	}
