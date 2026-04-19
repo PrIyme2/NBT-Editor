@@ -143,7 +143,7 @@ public class MVDrawableHelper {
 	public static void drawTexture(MatrixStack matrices, Identifier texture, int x, int y, float u, float v, int width, int height, int textureWidth, int textureHeight) {
 		Version.newSwitch()
 				.range("1.21.2", null, () -> getDrawContext(matrices).drawTexture(RenderLayer::getGuiTextured, texture, x, y, u, v, width, height, textureWidth, textureHeight))
-				.range("1.20.0", "1.21.11", () -> DrawContext_drawTexture.get().invoke(getDrawContext(matrices), texture, x, y, u, v, width, height, textureWidth, textureHeight))
+				.range("1.20.0", "1.21.1", () -> DrawContext_drawTexture.get().invoke(getDrawContext(matrices), texture, x, y, u, v, width, height, textureWidth, textureHeight))
 				.range(null, "1.19.4", () -> {
 					RenderSystem_setShader.get().invoke(null, (Supplier<ShaderProgram>) () -> GameRenderer_getPositionTexProgram.get().invoke(null));
 					RenderSystem.setShaderTexture(0, texture);
@@ -253,7 +253,7 @@ public class MVDrawableHelper {
 	public static void applyModelViewMatrix() {
 		Version.newSwitch()
 				.range("1.21.2", null, () -> {})
-				.range(null, "1.21.11", () -> RenderSystem_applyModelViewMatrix.get().invoke(null))
+				.range(null, "1.21.1", () -> RenderSystem_applyModelViewMatrix.get().invoke(null))
 				.run();
 	}
 	
